@@ -1,0 +1,28 @@
+{
+  "name": "taskerapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aviadgawl/TaskerApi.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs"
+  ],
+  "author": "aviad shua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aviadgawl/TaskerApi/issues"
+  },
+  "homepage": "https://github.com/aviadgawl/TaskerApi#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mssql": "^4.1.0"
+  }
+}
