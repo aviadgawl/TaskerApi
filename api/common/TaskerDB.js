@@ -2,14 +2,6 @@
 
 var sql = require("mssql");
 
-var config = {
-    user: "aviadgawl",
-    password: "1q2w3e4rSSJ2",
-    server: "aviaddev.database.windows.net",
-    database: "TaskerDB",
-    options: { encrypt: true }
-};
-
 exports.getDBData  =function(query , callback){
 
     sql.connect(config, function (err) {
