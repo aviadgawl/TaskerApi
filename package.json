@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "server": "node index.js"
   },
   "repository": {
@@ -24,5 +24,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "mssql": "^4.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1"
   }
 }
