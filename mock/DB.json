@@ -1,1 +1,1 @@
-[{"facebookId":123456,"name":"aviad shua"}]
+{"users":[{"facebookId":123456,"name":"aviad shua","points":123},{"facebookId":654321,"name":"liat shua"}],"tasks":[{"userFacebookId":123456,"header":"Eating","patron":null},{"userFacebookId":123456,"header":"Eating","patron":null}]}

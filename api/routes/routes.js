@@ -8,7 +8,7 @@ module.exports = function(app) {
 
 
   app.route('/users/:userId')
-    .get(usersCtrl.getUser)
+    .get(usersCtrl.getUserInfo)
     .put(usersCtrl.updateUser)
     .delete(usersCtrl.deleteUser);
 };
