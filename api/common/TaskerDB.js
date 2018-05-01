@@ -1,7 +1,7 @@
 "use strict";
 
 var sql = require("mssql");
-
+//hello
 var config = {
     user: "aviadgawl",
     password: "1q2w3e4rSSJ2",
