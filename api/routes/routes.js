@@ -1,14 +1,19 @@
 'use strict';
 
-module.exports = function(app) {
-  var usersCtrl = require('../controllers/users');
+var usersCtrl = require('../controllers/users');
+var tasksCtrl = require('../controllers/tasks'); 
 
-  app.route('/users')
-    .get(usersCtrl.listAllUsers);
-
+module.exports = function (app) {
+  
+  app.route('/users/save')
+    .post(usersCtrl.saveUser);
 
   app.route('/users/:userId')
-    .get(usersCtrl.getUser)
-    .put(usersCtrl.updateUser)
-    .delete(usersCtrl.deleteUser);
+    .get(usersCtrl.getUserInfo);
+
+  app.route('/tasks/save')
+    .post(tasksCtrl.saveTask);
+
+  app.route('/tasks/:userId')
+    .get(tasksCtrl.getTasks);
 };

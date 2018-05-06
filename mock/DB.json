@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "facebookId": 123456,
+            "name": "aviad shua",
+            "points": 123
+        }
+    ],
+    "tasks": [
+        {
+            "userFacebookId": 123456,
+            "header": "Eating",
+            "patron": null
+        }
+    ]
+}

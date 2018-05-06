@@ -1,23 +1,17 @@
 var express = require('express');
 var app = express();
 var userRoutes = require("./api/routes/routes");
-app.get('/api/getUserById', function (req, res) {
+var bodyParser = require('body-parser');
 
-    res.end("Aviad shua");
-});
-
-app.get('/api/getUserByName' , function(req , res){
-
-    res.end();
-});
-
+//app.use(bodyParser);
+app.use(bodyParser.json());
 userRoutes(app);
 
 var server = app.listen(8181, function () {
 
-    var host = server.address().address
-    var port = server.address().port
+    var host = server.address().address;
+    var port = server.address().port;
 
-    console.log("Example app listening at http://%s:%s", host, port)
+    console.log(`Example app listening at http://${host}:${port}`);
 
 });
