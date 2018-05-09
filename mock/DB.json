@@ -1,16 +1,1 @@
-{
-    "users": [
-        {
-            "facebookId": 123456,
-            "name": "aviad shua",
-            "points": 123
-        }
-    ],
-    "tasks": [
-        {
-            "userFacebookId": 123456,
-            "header": "Eating",
-            "patron": null
-        }
-    ]
-}
+{"users":[{"facebookId":123456,"name":"aviad shua","points":123},{"facebookId":12343,"name":"dodo"},{"facebookId":12343,"name":"dodo"},{"facebookId":12343,"name":"dodo"},{},{},{},{},{}],"tasks":[{"userFacebookId":123456,"header":"Eating","patron":null}]}

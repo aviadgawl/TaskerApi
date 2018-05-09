@@ -8,12 +8,12 @@ module.exports = function (app) {
   app.route('/users/save')
     .post(usersCtrl.saveUser);
 
-  app.route('/users/:userId')
+  app.route('/users/:facebookId')
     .get(usersCtrl.getUserInfo);
 
   app.route('/tasks/save')
     .post(tasksCtrl.saveTask);
 
-  app.route('/tasks/:userId')
+  app.route('/tasks/:facebookId')
     .get(tasksCtrl.getTasks);
 };

@@ -2,9 +2,15 @@ var express = require('express');
 var app = express();
 var userRoutes = require("./api/routes/routes");
 var bodyParser = require('body-parser');
+var cors  = require('cors');
 
-//app.use(bodyParser);
+//allow cross origin requests.
+app.use(cors());
+
+//lets the server read the request body if its json.
 app.use(bodyParser.json());
+
+//handels the api routes of the server.
 userRoutes(app);
 
 var server = app.listen(8181, function () {
