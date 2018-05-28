@@ -4,7 +4,7 @@
 var taskerDB = require("../../mock/TaskerDBMock");
 
 exports.getTasks = function (req, res) {
-    taskerDB.getUserTasks(req.params.userId, function (err, data) {
+    taskerDB.getUserTasks(req.params.facebookId, function (err, data) {
 
         if (err) res.end(err);
         else res.end(JSON.stringify(data));

@@ -12,14 +12,14 @@ exports.dbCreate = function (data, cb) {
 exports.getUserInfo = function (facebookId, cb) {
     fs.readFile(dbFilePath, function (err, data) {
         if (err) cb(err);
-       
+
         var users = JSON.parse(data).users;
-     
+
         var user = users.filter(function (user) {
             if (user.facebookId == facebookId) { return user; }
         })[0];
-     
-        user = user == undefined?null:user;
+
+        user = user == undefined ? null : user;
 
         cb(null, user);
     });
@@ -29,39 +29,46 @@ exports.saveUser = function (facebookId, name, cb) {
 
     fs.readFile(dbFilePath, function (err, data) {
         if (err) cb(err);
+        else {
+            var dbData = JSON.parse(data);
 
-        var dbData = JSON.parse(data);
-        dbData.users.push({ facebookId: facebookId, name: name })
+            var user = dbData.users.filter(function (user) {
+                if (user.facebookId == facebookId) { return user; }
+            })[0];
 
-        fs.writeFile(dbFilePath, JSON.stringify(dbData), function (err) {
-            if (err) throw err;
+            if ((user == undefined) && facebookId && name) {
+                dbData.users.push({ facebookId: facebookId, name: name , points: 0 })
 
-            cb(null, { message: `user ${name} has been saved!`, status: true });
-        });
-
+                fs.writeFile(dbFilePath, JSON.stringify(dbData), function (err) {
+                    if (err) throw err;
+    
+                    cb(null, { message: `user ${name} has been saved!`, status: true });
+                });
+            }
+        }
     });
 }
 
 exports.getUserTasks = function (facebookId, cb) {
     fs.readFile(dbFilePath, function (err, data) {
         if (err) cb(err);
-       
+
         var tasks = JSON.parse(data).tasks;
-     
+
         var resultTasks = tasks.filter(function (task) {
             if (task.userFacebookId == facebookId) { return task; }
         });
-     
+
         cb(null, resultTasks);
     });
 }
 
-exports.saveTask = function(userFacebookId , header , patron , cb){
+exports.saveTask = function (userFacebookId, header, patron, cb) {
     fs.readFile(dbFilePath, function (err, data) {
         if (err) cb(err);
 
         var dbData = JSON.parse(data);
-        dbData.tasks.push({ userFacebookId: userFacebookId, header: header , patron:patron });
+        dbData.tasks.push({ userFacebookId: userFacebookId, header: header, patron: patron });
 
         fs.writeFile(dbFilePath, JSON.stringify(dbData), function (err) {
             if (err) throw err;

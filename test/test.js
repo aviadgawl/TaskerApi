@@ -6,7 +6,14 @@ describe('TaskerDBMock', function (done) {
     it("should create the database with defualt values", function (done) {
         TaskerDBMock.dbCreate({
             users: [{ facebookId: 123456, name: "aviad shua", points: 123 }],
-            tasks: [{ userFacebookId: 123456, header: "Eating", patron: null }]
+            tasks: [{
+                userFacebookId: "10215547018569143",
+                header: "Eating",
+                patron: null,
+                status: "completed",
+                body: "need to eat banana",
+                dateCreated: "20/08/18"
+            }]
         }, function (err, data) {
             if (err) assert.fail(err);
 
@@ -40,7 +47,8 @@ describe('TaskerDBMock', function (done) {
         TaskerDBMock.getUserInfo(12345236, function (err, user) {
 
             if (err) assert.fail(err);
-            else assert.equal(user, undefined);
+            else assert.deepEqual(user, undefined);
+
 
             done();
         });
@@ -59,7 +67,7 @@ describe('TaskerDBMock', function (done) {
 
     it("should add a task to the user aviad shua", function (done) {
 
-        TaskerDBMock.saveTask(123456,"Eating", null, function (err, data) {
+        TaskerDBMock.saveTask(123456, "Eating", null, function (err, data) {
 
             if (err) assert.fail(err);
             else assert.equal(data.status, true);
@@ -79,4 +87,24 @@ describe('TaskerDBMock', function (done) {
         });
     });
 
+    it("should return the database to its defualt values", function (done) {
+        TaskerDBMock.dbCreate({
+            users: [{ facebookId: 123456, name: "aviad shua", points: 123 }],
+            tasks: [{
+                userFacebookId: "10215547018569143",
+                header: "Eating",
+                patron: null,
+                status: "completed",
+                body: "need to eat banana",
+                dateCreated: "20/08/18"
+            }]
+        }, function (err, data) {
+            if (err) assert.fail(err);
+
+            done();
+        });
+    });
+
 });
+
+
