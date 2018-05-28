@@ -1,2 +1,7 @@
 # Folders to ignore
 node_modules/
+
+.vscode/
+
+# Files to ignore
+api/common/TaskerDB.js
