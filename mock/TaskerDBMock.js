@@ -1,5 +1,6 @@
 var fs = require("fs");
 var dbFilePath = "./mock/DB.json";
+var { Task } = require('../api/common/entits');
 
 exports.dbDelete = function (cb) {
     fs.unlink(dbFilePath, cb);
